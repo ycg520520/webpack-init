@@ -1,0 +1,37 @@
+{
+  "browser": true, // 预定义全局变量 document\navigator\FileReader等
+  "curly": true, // true: 循环或者条件语句必须使用花括号包围
+  "eqeqeq": true, // true: 强制使用三等号
+  "immed": true, // true: Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
+  "latedef": true, // true: 禁止定义之前使用变量，忽略 function 函数声明
+  "newcap": true, // true: 构造器函数首字母大写`
+  "noarg": true, // true: 禁止使用 arguments.caller 和 arguments.callee ，未来会被弃用， ECMAScript 5 禁止使用 arguments.callee
+  "sub": true, // true: 禁止使用空块
+  "undef": true, // true: 变量未定义
+  "unused": true, // true: 变量未使用
+  "boss": true, // true: 要求所有定义的变量被使用
+  "eqnull": true, // true: 要求所有功能，运行在ES5的严格模式
+  "es3": false, // 兼容低级浏览器 IE 6/7/8/9
+  "node": true, // {int} Max depth of nested blocks (within functions)
+  "-W117": true, // {int} Max number statements per function
+  "esnext": true, // Allow ES6.
+  "indent": 2, // 代码缩进.
+  "maxlen": 256, // 每行最大字数
+  "quotmark": "single", // 为 true 时，禁止单引号和双引号混用.
+  "strict": true, // 严格模式
+  "bitwise": true, // 禁用位运算符，位运算符在 JavaScript 中使用较少，经常是把 && 错输成 &
+  "freeze": true, // 禁止重写原生对象的原型
+  "maxparams": true, // 最多参数个数
+  "maxdepth": true, // 最大嵌套深度
+  "maxcomplexity": false, // 复杂度检测
+  // "debug": true, // 忽略 debugger
+  "evil": true, // 控制 eval 使用警告
+  "lastsemic": false, // 检查一行代码最后声明后面的分号是否遗漏
+  "laxcomma": true, // 检查不安全的折行，忽略逗号在最前面的编程风格
+  "loopfunc": true, // 检查循环内嵌套 function
+  "multistr": true, // 检查多行字符串
+  "notypeof": true, // 检查无效的 typeof 操作符值
+  "supernew": true, // new function(){...} 和 new Object
+  "validthis": true, // 在非构造器函数中使用this
+  "devel": true // 义用于调试的全局变量：console,alert
+}

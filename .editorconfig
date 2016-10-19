@@ -1,0 +1,31 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+root = true
+# 顶级最editorconfig文件
+
+# 所有文件应用一下一下规则
+[*.*]
+	# 统一的编码设置
+	charset = utf-8
+
+	# 缩进的尺寸
+	indent_size = 8
+
+	# 使用空格进行缩进
+	indent_style = tab
+
+	# UNIX风格的换行符与换行符结束的每一个文件
+	end_of_line = lf
+
+	# 每一个文件以空白行结尾
+	insert_final_newline = true
+
+	# 去除换行内空白字符
+	trim_trailing_whitespace = true
+
+# 所有js,html格式文件应用一下规则
+# [*.{js,html}]
+
+[*.md]
+	# md格式文件不去除行内多余的空白字符
+	trim_trailing_whitespace = false
