@@ -11,9 +11,7 @@ const _ = require('lodash')
 // webpack相关使用模块定义
 const webpack = require('webpack')
   , ExtractTextPlugin = require('extract-text-webpack-plugin') // 独立打包插件
-  , HtmlWebpackPlugin = require('html-webpack-plugin') // Html打包插件
   , UglifyJsPlugin = webpack.optimize.UglifyJsPlugin // JS压缩插件
-  , CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin // 公共块提取插件
   , DefinePlugin = webpack.DefinePlugin // 定制压缩插件
   , defaultSettings = require('./webpack.default') // 默认的webpack配置
   , dir = defaultSettings.dir // 获得默认配置中的目录配置
@@ -24,7 +22,7 @@ let extractCSS = new ExtractTextPlugin(dir.style + '[name].[contenthash:8].css',
     // additional chunk所依赖的css，即指定`ExtractTextPlugin.extract()`
     // 第一个参数`notExtractLoader`，一般是使用style-loader
     // @see https://github.com/webpack/extract-text-webpack-plugin
-    allChunks: false
+    allChunks: true
   })
 
 // 利用lodash整合默认配置
@@ -71,10 +69,10 @@ config.plugins.push(
     },
     output: {
       comments: false //显示注释
-    },
+    }/*,
     mangle: {
       except: ['$', 'exports', 'require']
-    }
+    }*/
   }),
   // use `production` mode
   new DefinePlugin({ 'process.env': { 'NODE_ENV': JSON.stringify('production') }}),

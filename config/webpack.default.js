@@ -40,7 +40,7 @@ let config = {
   cache: false,
   // 入口文件
   entry: _.merge(entries, {
-    'vender': ['jquery'],
+    'common': ['jquery','zepto'],
   }),
 
   // 输出目录
@@ -107,19 +107,14 @@ let config = {
 
   // 插件运用
   plugins: [
+    // 提取公共块
     new CommonsChunkPlugin({
-      name: ['vender'],
-      chunks: ['common']
+      name:['common','vender'],
     }),
-    /**
-     * 没有真正引用也会加载到runtime，
-     * 如果没安装这些模块会导致报错，有点坑
-     */
-    /*new webpack.ProvidePlugin({
-      _: 'lodash',
-      $: 'jquery'
-    }),*/
-    // new webpack.HotModuleReplacementPlugin()
+    // 使用bower安装的插件
+    new webpack.ResolverPlugin(
+      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
+    )
   ].concat(plugins)
 }
 
@@ -162,7 +157,6 @@ function getEntry(path, type) {
  */
 function entryHtml(path, entries){
   path = path.replace(/\\/g, '/') + '/' // 解决windows系统路径为\杠的问题
-  console.log(path)
   let entryFile = glob.sync(path + '**/*.html'),
     reg = new RegExp('(.*)\.(html)'),
     tmpArr = []
@@ -181,7 +175,7 @@ function entryHtml(path, entries){
 
     if (name in entries) {
       conf.inject = 'body'
-      conf.chunks = ['vender', 'common', name]
+      conf.chunks = ['vender','common', name ]
     }
     tmpArr.push(new HtmlWebpackPlugin(conf))
   })

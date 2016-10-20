@@ -30,7 +30,6 @@ gulp.task('clean', () => {
 
 // webpack 配置打包操作
 gulp.task('webpack', ['clean','jshint'], (done) => {
-  console.log(this,done)
   webpack(webpackConfig('pro'), (err, stats) => {
     if(err) throw new $.util.PluginError('webpack', err)
     $.util.log('[webpack]', stats.toString({colors: true}))

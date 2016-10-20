@@ -11,9 +11,7 @@ const _ = require('lodash')
 // webpack相关使用模块定义
 const webpack = require('webpack')
   , ExtractTextPlugin = require('extract-text-webpack-plugin') // 独立打包插件
-  , HtmlWebpackPlugin = require('html-webpack-plugin') // Html打包插件
   , UglifyJsPlugin = webpack.optimize.UglifyJsPlugin // JS压缩插件
-  , CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin // 公共块提取插件
   , DefinePlugin = webpack.DefinePlugin // 定制压缩插件
   , defaultSettings = require('./webpack.default') // 默认的webpack配置
   , dir = defaultSettings.dir // 获得默认配置中的目录配置
